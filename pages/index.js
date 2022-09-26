@@ -5,6 +5,7 @@ import { Button } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
+import FourthPost from "./posts/fourth-post";
 
 // Pre-rendering at build time, without params
 export async function getStaticProps () {
@@ -50,6 +51,12 @@ export default function Home ({ allPostsData }) {
           ))}
         </ul>
       </section>
-    </Layout>
+      <section>
+        <Link href={{ pathname: "/posts/third-post", query: 'id=1' }}>third-post</Link>
+        {/* Router.push('/?name=zyc');
+        Router.push({pathname: '/', query: {}}) */}
+        <FourthPost user={{ id: 1 }}></FourthPost>
+      </section>
+    </Layout >
   );
 }

@@ -1,5 +1,3 @@
-module.exports = (phase, { defaultConfig }) => {
-  return {
-    ...defaultConfig
-  }
+module.exports = {
+  basePath: '/spring-demo',
 }
