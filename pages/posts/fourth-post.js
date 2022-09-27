@@ -12,10 +12,10 @@ export async function getStaticProps ({ params }) {
 }
 
 export default function fourthPost ({ user }) {
-  const { res } = getUser(user.id)
+  const res = getUser(user.id)
   return (
     <Layout>
-      {res}
+      <h1>{res}</h1>
     </Layout>
   )
 }

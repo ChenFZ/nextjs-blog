@@ -1,6 +1,6 @@
 export function initHeader () {
   let headers = new Headers()
-  // headers.append('Accept', 'application/json, text/plain, */*')
+  headers.append('Accept', '*/*')
   // headers.append('Cache-Control', 'no-store, no-cache')
   headers.append('Content-Type', 'application/json;charset=UTF-8')
   // headers.append("Access-Control-Allow-Origin", "no-cors")

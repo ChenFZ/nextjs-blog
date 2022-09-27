@@ -1,13 +1,14 @@
-// server.js
 const express = require('express')
 const next = require('next')
-const { createProxyMiddleware } = require('http-proxy-middleware')
+const createProxyMiddleware = require('http-proxy-middleware').createProxyMiddleware;
+
+const baseUrl = 'http://localhost:8080/spring-demo'
 
 const devProxy = {
   '/api': {
-    target: 'http://localhost:8080/', // 端口自己配置合适的
+    target: baseUrl, // 端口自己配置合适的
     pathRewrite: {
-      '^/api': '/'
+      '^/api': '/api'
     },
     changeOrigin: true
   }
@@ -25,7 +26,7 @@ app.prepare()
     const server = express()
 
     if (dev && devProxy) {
-      Object.keys(devProxy).forEach(function (context) {
+      Object.keys(devProxy).forEach((context) => {
         server.use(createProxyMiddleware(context, devProxy[context]))
       })
     }
